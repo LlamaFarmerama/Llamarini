@@ -65,7 +65,7 @@ showGameState( game.get_current_state(), game.player, game.stage, game.playedtur
 
 while game.winner == 0:
 	validMoves = game.get_allowed_moves()
-	if validMoves.__len__() == 0:
+	if len(validMoves) == 0:
 		print( "No valid moves left." )
 		assert game.winner != 0 # no valid moves, winner should be filled now
 		continue
@@ -80,7 +80,7 @@ while game.winner == 0:
 showGameState( game.get_current_state(), game.player, game.stage, game.playedturns, gameBoardGraphics )
 print("Winner: " + ("White" if game.winner == 1 else "Black"))
 
-print( "All moves count = " + str(game.allmoves.__len__()))
+print( "All moves count = " + str(len(game.allmoves)))
 plt.show()
 
 input("Press Return to end...")
