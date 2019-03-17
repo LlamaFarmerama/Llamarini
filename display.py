@@ -7,6 +7,7 @@ def initializeDisplay():
 	gameWindow = plt.figure()
 	gameBoardGraphics = gameWindow.add_subplot( 111, projection='3d' )
 	plt.show( block=False )
+	return gameBoardGraphics
 
 def shutdownDisplay():
 	plt.show()
