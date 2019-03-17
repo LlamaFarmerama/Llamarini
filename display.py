@@ -23,7 +23,7 @@ def showGameState( gameState, playerTurn, gameStage, playedTurns, gameBoardGraph
 		for y in range( 5 ):
 			row = ""
 			for x in range( 5 ):
-				playerChar = "," if gameState[ 1 ][ x ][ y ] > 0 else "'" if gameState[ 1 ][ x ][ y ] < 0 else " "
+				playerChar = "*" if gameState[ 1 ][ x ][ y ] > 0 else "o" if gameState[ 1 ][ x ][ y ] < 0 else " "
 				row += playerChar
 				row += str( (gameState[0][x][y]) or "." )
 				row += playerChar

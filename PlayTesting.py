@@ -1,15 +1,15 @@
 import game as santorino
 from display import *
+from recorded_game import Match
 
 import random
 
-import time
-
-# graphicsWindow = initializeDisplay()
-
 game = santorino.Game()
-game.set_up_randomly()
+print( "All moves count = " + str(len(game.allmoves)))
+match = Match()
+match.add_moves( game.set_up_randomly() )
 showGameState( game.get_current_state(), game.active_player, game.stage, game.playedturns )
+
 
 
 while game.winner is None:
@@ -22,13 +22,10 @@ while game.winner is None:
 	chosenMove = random.choice( validMoves )
 	game.move( chosenMove )
 
+	match.add_move( chosenMove )
+
 	showGameState( game.get_current_state(), game.active_player, game.stage, game.playedturns )
 
-	# time.sleep(0.1)
-
-# showGameState( game.get_current_state(), game.active_player, game.stage, game.playedturns, graphicsWindow )
 print("Winner: " + ("White" if game.winner == 0 else "Black"))
 
-print( "All moves count = " + str(len(game.allmoves)))
-
-shutdownDisplay()
+print( "Save string: " + match.serialize() )
